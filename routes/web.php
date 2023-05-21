@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,15 @@ Route::post('greeting', function () {
 });
 
 Route::get('greeting', function () {
-    return view('greeting');
+    // We should get logged in User name
+    $name = "Zid";
+    $number = 5;
+
+    $html = "<b>HTML</b>";
+
+    return view('greeting', compact('name', 'number', 'html'));
+
+    // return view('greeting', ['name' => $name]);
 });
 
 // Route::get('/user', [UserController::class, 'index']);
@@ -41,7 +50,16 @@ Route::get('users/{name}', function (string $name) {
     return "Hello From User $name";
 });
 
-
-Route::view('/', 'index');
-
 Route::view('/contact', 'contact');
+
+
+Route::get('blogs', function () {
+    return view('blogs');
+});
+
+Route::get('about', function () {
+    return view('about');
+});
+
+Route::get('contact', [FrontController::class, 'contact']);
+Route::get('test-db', [FrontController::class, 'test_db']);
