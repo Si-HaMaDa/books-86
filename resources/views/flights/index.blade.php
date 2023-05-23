@@ -10,15 +10,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @foreach ($flights as $flight)
                     <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $flight->id }}</td>
+                        <td>{{ $flight->name }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
-        {!! $users->links('pagination::bootstrap-5') !!}
+        {!! $flights->links('pagination::bootstrap-5') !!}
     </div>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FlightController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,3 +64,10 @@ Route::get('about', function () {
 
 Route::get('contact', [FrontController::class, 'contact']);
 Route::get('test-db', [FrontController::class, 'test_db']);
+Route::get('test-model', [FrontController::class, 'test_model']);
+
+
+Route::get('flights', [FlightController::class, 'index']);
+Route::get('flights/create', [FlightController::class, 'create']);
+Route::post('flights/store', [FlightController::class, 'store']);
+
