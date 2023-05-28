@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::view('admin', 'admin.index');
 
-Route::view('admin/categories', 'admin.categories.index');
+Route::get('admin/categories', [CategoryController::class, 'index']);

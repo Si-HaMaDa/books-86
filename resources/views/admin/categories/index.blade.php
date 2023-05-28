@@ -1,5 +1,7 @@
 @extends('admin.layout.main')
 
+@section('title', 'Admin Area | Categories')
+
 @section('content')
     <div class="page-content">
         <div>
@@ -16,7 +18,7 @@
             </thead>
             <tbody>
 
-                @foreach ([] as $category)
+                @foreach ($categories as $category)
                     <tr>
                         <td>{{ $category['id'] }}</td>
                         <td>{{ $category['name'] }}</td>
@@ -36,5 +38,7 @@
 
             </tbody>
         </table>
+
+        {!! $categories->links('pagination::bootstrap-5') !!}
     </div>
 @endsection
