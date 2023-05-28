@@ -13,7 +13,11 @@
             </div>
             <div class="col-12">
                 <label class="form-label" for="inputName">Name</label>
-                <input class="form-control" id="inputName" name="name" type="text" placeholder="Name...">
+                <input class="form-control @error('name') is-invalid @enderror" id="inputName" name="name" type="text"
+                    value="{{ old('name') }}" placeholder="Name...">
+                @error('name')
+                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                @enderror
             </div>
             <div class="col-12">
                 <button class="btn btn-primary" type="submit">Save</button>

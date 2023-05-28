@@ -30,11 +30,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|alpha|unique:categories|max:100',
+        ]);
+
         $category = new Category();
-        $category->name = $request->name;
+        $category->name = $validated['name'];
         $category->save();
 
-        return redirect(url('admin/categories'));
+        return redirect(url('admin/categories'))->with('success', 'Category created successfully');
     }
 
     /**
