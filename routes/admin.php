@@ -7,3 +7,4 @@ Route::view('admin', 'admin.index');
 
 Route::get('admin/categories', [CategoryController::class, 'index']);
 Route::get('admin/categories/create', [CategoryController::class, 'create']);
+Route::post('admin/categories', [CategoryController::class, 'store']);
