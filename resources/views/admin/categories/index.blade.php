@@ -5,7 +5,7 @@
 @section('content')
     <div class="page-content">
         <div>
-            <a class="float-end btn btn-primary" href="#/categories/add.php">Add Category</a>
+            <a class="float-end btn btn-primary" href="{{ url('admin/categories/create') }}">Add Category</a>
             <h1 class="mt-3">Categories</h1>
         </div>
         <table class="table table-striped">
