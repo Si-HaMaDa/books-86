@@ -31,7 +31,7 @@ class HashtagController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|starts_with:#|unique:hashtags|max:100',
+            'name' => 'required|string|unique:hashtags|max:100',
         ]);
 
         $hashtag = new Hashtag();
@@ -75,7 +75,7 @@ class HashtagController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-            'name' => 'required|string|starts_with:#|unique:hashtags,name,' . $id . '|max:100',
+            'name' => 'required|string|unique:hashtags,name,' . $id . '|max:100',
         ]);
 
         $hashtag = Hashtag::find($id);
@@ -98,11 +98,11 @@ class HashtagController extends Controller
         $hashtag = Hashtag::find($id);
 
         if (!$hashtag) {
-            return redirect(route('admin.hashtags.index'))->with('error', 'Hashtag not found!');
+            return redirect(route('admin.categories.index'))->with('error', 'ashtag not found!');
         }
 
         $hashtag->delete();
 
-        return redirect(route('admin.hashtags.index'))->with('success', 'Hashtag deleted successfully');
+        return redirect(route('admin.categories.index'))->with('success', 'ashtag deleted successfully');
     }
 }
