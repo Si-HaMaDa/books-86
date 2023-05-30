@@ -61,7 +61,13 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+
+        if (!$category) {
+            return redirect(route('admin.categories.index'))->with('error', 'Category not found!');
+        }
+
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**

@@ -26,7 +26,7 @@
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.categories.show', $category['id']) }}">
                                 Show
                             </a> |
-                            <a class="btn btn-sm btn-warning" href="#/categories/edit.php?id={{ $category['id'] }}">
+                            <a class="btn btn-sm btn-warning" href="{{ route('admin.categories.edit', $category['id']) }}">
                                 Edit
                             </a> |
                             <a class="btn btn-sm btn-danger" href="#/categories?delete={{ $category['id'] }}">
