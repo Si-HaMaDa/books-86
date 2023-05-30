@@ -38,7 +38,7 @@ class CategoryController extends Controller
         $category->name = $validated['name'];
         $category->save();
 
-        return redirect(url('admin/categories'))->with('success', 'Category created successfully');
+        return redirect(route('admin.categories.index'))->with('success', 'Category created successfully');
     }
 
     /**

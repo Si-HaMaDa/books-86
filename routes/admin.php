@@ -3,8 +3,27 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 
-Route::view('admin', 'admin.index');
 
-Route::get('admin/categories', [CategoryController::class, 'index']);
-Route::get('admin/categories/create', [CategoryController::class, 'create']);
-Route::post('admin/categories', [CategoryController::class, 'store']);
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+], function () {
+
+    // admin
+    Route::view('/', 'admin.index')->name('index');
+
+    Route::controller(CategoryController::class)
+        ->prefix('categories')
+        ->name('categories.')
+        // ->middleware('auth')
+        ->group(function () {
+
+            // admin/categories
+            Route::get('/', 'index')->name('index'); // admin.categories.index
+            Route::get('create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+        });
+
+    // Route::resource('categories', CategoryController::class);
+});

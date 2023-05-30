@@ -5,10 +5,10 @@
 @section('content')
 
     <div class="page-content card">
-        <form class="row g-3 card-body" action="{{ url('admin/categories') }}" method="POST">
+        <form class="row g-3 card-body" action="{{ route('admin.categories.store') }}" method="POST">
             @csrf
             <div class="card-title">
-                <a class="float-end btn btn-primary mt-3" href="{{ url('admin/categories') }}">Back</a>
+                <a class="float-end btn btn-primary mt-3" href="{{ route('admin.categories.index') }}">Back</a>
                 <h1 class="mt-3">Add Category</h1>
             </div>
             <div class="col-12">

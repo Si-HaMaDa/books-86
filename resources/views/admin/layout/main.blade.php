@@ -13,8 +13,7 @@
 
     <link href="https://getbootstrap.com/docs/5.3/examples/sticky-footer-navbar/" rel="canonical">
 
-    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link href="https://getbootstrap.com/docs/5.3/assets/img/favicons/apple-touch-icon.png" rel="apple-touch-icon"
@@ -115,13 +114,13 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ url('admin') }}" aria-current="page">Home</a>
+                            <a class="nav-link active" href="{{ route('admin.index') }}" aria-current="page">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/users">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/categories') }}">Categories</a>
+                            <a class="nav-link" href="{{ route('admin.categories.index') }}">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/hashtags">Hashtags</a>
@@ -171,9 +170,7 @@
     </footer>
 
 
-    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 
 </body>
