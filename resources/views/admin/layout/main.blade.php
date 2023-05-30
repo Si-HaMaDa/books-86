@@ -158,6 +158,12 @@
                 </div>
             @endif
 
+            @if (session()->has('error'))
+                <div class="alert alert-danger my-3">
+                    <p>{{ session()->get('error') }}</p>
+                </div>
+            @endif
+
             @yield('content')
 
         </div>

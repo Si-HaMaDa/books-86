@@ -23,7 +23,7 @@
                         <td>{{ $category['id'] }}</td>
                         <td>{{ $category['name'] }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="#/categories/show.php?id={{ $category['id'] }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('admin.categories.show', $category['id']) }}">
                                 Show
                             </a> |
                             <a class="btn btn-sm btn-warning" href="#/categories/edit.php?id={{ $category['id'] }}">

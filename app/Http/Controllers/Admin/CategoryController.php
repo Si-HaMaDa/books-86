@@ -46,7 +46,14 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // $category = Category::findOrFail($id);
+        $category = Category::find($id);
+
+        if (!$category) {
+            return redirect(route('admin.categories.index'))->with('error', 'Category not found!');
+        }
+
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
