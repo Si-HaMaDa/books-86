@@ -29,9 +29,14 @@
                             <a class="btn btn-sm btn-warning" href="{{ route('admin.categories.edit', $category['id']) }}">
                                 Edit
                             </a> |
-                            <a class="btn btn-sm btn-danger" href="#/categories?delete={{ $category['id'] }}">
-                                Delete
-                            </a>
+                            <form class="d-inline" action="{{ route('admin.categories.destroy', $category['id']) }}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-sm btn-danger" type="submit">
+                                    Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
