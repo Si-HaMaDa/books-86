@@ -25,6 +25,7 @@ Route::group([
             Route::post('/', 'store')->name('store');
             Route::get('/{id}', 'show')->name('show');
             Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::put('/{id}', 'update')->name('update');
         });
 
     // Route::resource('categories', CategoryController::class);

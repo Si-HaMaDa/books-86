@@ -75,7 +75,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|alpha|unique:categories,name,' . $id . '|max:100',
+        ]);
+
+        $category = Category::find($id);
+
+        if (!$category) {
+            return redirect(route('admin.categories.index'))->with('error', 'Category not found!');
+        }
+
+        $category->name = $validated['name'];
+        $category->save();
+
+        return redirect(route('admin.categories.index'))->with('success', 'Category updated successfully');
     }
 
     /**
