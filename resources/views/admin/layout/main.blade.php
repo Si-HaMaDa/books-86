@@ -123,7 +123,7 @@
                             <a class="nav-link" href="{{ route('admin.categories.index') }}">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/hashtags">Hashtags</a>
+                            <a class="nav-link" href="{{ route('admin.hashtags.index') }}">Hashtags</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#/books">Books</a>

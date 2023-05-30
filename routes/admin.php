@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
-
-
+use App\Http\Controllers\Admin\HashtagController;
 
 Route::group([
     'prefix' => 'admin',
@@ -28,5 +27,10 @@ Route::group([
     //         Route::delete('/{id}', 'destroy')->name('destroy');
     //     });
 
-    Route::resource('categories', CategoryController::class);
+    // Route::resource('categories', CategoryController::class);
+
+    Route::resources([
+        'categories' => CategoryController::class,
+        'hashtags' => HashtagController::class,
+    ]);
 });
