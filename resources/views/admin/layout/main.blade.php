@@ -126,7 +126,7 @@
                             <a class="nav-link" href="{{ route('admin.hashtags.index') }}">Hashtags</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/books">Books</a>
+                            <a class="nav-link" href="{{ route('admin.books.index') }}">Books</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

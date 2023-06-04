@@ -1,12 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HashtagController;
+use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.',
+    'as'     => 'admin.',
 ], function () {
 
     // admin
@@ -31,6 +32,7 @@ Route::group([
 
     Route::resources([
         'categories' => CategoryController::class,
-        'hashtags' => HashtagController::class,
+        'hashtags'   => HashtagController::class,
+        'books'      => BookController::class,
     ]);
 });
