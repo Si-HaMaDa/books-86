@@ -4,12 +4,13 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HashtagController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'admin',
     'as'     => 'admin.',
-    'middleware' => 'auth',
+    'middleware' => ['auth', 'admin'],
 ], function () {
 
     // admin
