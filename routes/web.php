@@ -71,3 +71,7 @@ Route::get('flights', [FlightController::class, 'index']);
 Route::get('flights/create', [FlightController::class, 'create']);
 Route::post('flights/store', [FlightController::class, 'store']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
