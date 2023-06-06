@@ -68,7 +68,17 @@ class BookController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::find($id);
+
+        if (!$book) {
+            return redirect(route('admin.books.index'))->with('error', 'Book not found!');
+        }
+
+        return view('admin.books.edit')->with([
+            'book' => $book,
+            'categories' => Category::pluck('name', 'id'),
+            'hashtags' => Hashtag::pluck('name', 'id'),
+        ]);
     }
 
     /**
@@ -76,7 +86,31 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|unique:books,title,' . $id . '|max:100',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|max:1000',
+            'category_id' => 'required|exists:categories,id',
+            'hashtags' => 'nullable|array',
+            'hashtags.*' => 'integer|exists:hashtags,id',
+        ]);
+
+        $book = Book::find($id);
+
+        if (!$book) {
+            return redirect(route('admin.books.index'))->with('error', 'Book not found!');
+        }
+
+        if ($request->file('image')) {
+            $validated['image'] = $request->file('image')->store('books');
+            \Storage::delete($book->image);
+        }
+
+        $book->update($validated);
+
+        $book->hashtags()->sync($validated['hashtags']);
+
+        return redirect(route('admin.books.index'))->with('success', 'Book updated successfully');
     }
 
     /**
@@ -84,6 +118,12 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $book = Book::find($id);
+
+        \Storage::delete($book->image);
+        $book?->hashtags()->detach();
+        $book?->delete();
+
+        return redirect(route('admin.books.index'))->with('success', 'Book deleted successfully');
     }
 }
