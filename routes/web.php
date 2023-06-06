@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\FrontController;
+use App\Http\Middleware\RandomMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,7 +63,8 @@ Route::get('about', function () {
     return view('about');
 });
 
-Route::get('contact', [FrontController::class, 'contact']);
+Route::get('contact', [FrontController::class, 'contact'])->middleware(RandomMiddleware::class);
+
 Route::get('test-db', [FrontController::class, 'test_db']);
 Route::get('test-model', [FrontController::class, 'test_model']);
 
