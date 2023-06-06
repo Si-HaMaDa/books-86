@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HashtagController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -34,5 +35,6 @@ Route::group([
         'categories' => CategoryController::class,
         'hashtags'   => HashtagController::class,
         'books'      => BookController::class,
+        'users'      => UserController::class,
     ]);
 });

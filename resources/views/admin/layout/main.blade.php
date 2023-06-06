@@ -117,7 +117,7 @@
                             <a class="nav-link active" href="{{ route('admin.index') }}" aria-current="page">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#/users">Users</a>
+                            <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.categories.index') }}">Categories</a>
